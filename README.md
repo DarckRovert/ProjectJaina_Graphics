@@ -1,5 +1,6 @@
 # 💎 WoWPeru_Graphics — Suite Gráfica HD & Control de Renderizado Nativo
 
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru__Graphics-black?logo=github)](https://github.com/DarckRovert/WoWPeru_Graphics)
 [![Entorno](https://img.shields.io/badge/WoW-3.3.5a%20(Build%2012340)-blue.svg)](https://wow-peru.lat/)
 [![Servidor](https://img.shields.io/badge/Servidor-WoW%20Per%C3%BA%20--%20Reino%20Andino-gold.svg)](https://wow-peru.lat/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
@@ -16,21 +17,21 @@ Permite desbloquear la fidelidad visual cristalina del motor sin necesidad de in
 ### 1. Nitidez Nativa Pura (Erradicación del Bloom Lechoso)
 - **Desactivación de `ffxGlow`:** Elimina el filtro de desenfoque de baja resolución nativo de 2008 que provocaba una capa lechosa en toda la pantalla, devolviendo nitidez píxel a píxel a texturas HD, armaduras y terreno.
 - **Claridad de Muerte (`ffxDeath 0`):** Elimina la distorsión borrosa en escala de grises al entrar en estado fantasma.
-- **Filtrado Anisótropo en Modelos 3D (`M2ForceBilinear 0`):** En 3.3.5a, los personajes y criaturas usan filtrado bilinear borroso por omisión. Este parámetro fuerza el filtrado anisótropo 16x en todas las mallas `M2`.
+- **Filtrado Anisótropo y Aceleración 3D (`anisotropic 16`, `M2Faster 1`):** Máxima definición de texturas en terreno y mallas tridimensionales.
 
 ### 2. Vegetación y Distancia Extrema
 - **Densidad Cuádruple de Césped (`groundEffectDensity 256`):** Multiplica por cuatro la cantidad de vegetación, flores y densidad de suelo respecto al límite clásico de Blizzard (64).
 - **Distancia de Vegetación (`groundEffectDist 140`):** Mantiene el follaje visible a gran distancia.
-- **Distancia de Visión y Horizonte (`farclip 1277`, `horizonfarclip 3000`):** Elimina la niebla cercana y permite divisar montañas y cielo lejanos con fidelidad panorámica.
+- **Distancia de Visión y Detalle (`farclip 1277`, `environmentDetail 1.5`):** Elimina la niebla cercana y dibuja estructuras lejanas con máxima fidelidad panorámica.
 
 ### 3. Sombras Dinámicas Reales y Reflejos
-- **Sombras Proyectadas 2K (`shadowLevel 2`, `shadowTextureSize 2048`):** Sustituye las sombras circulares planas por sombras proyectadas en tiempo real de personajes, monturas y árboles sobre la geometría del terreno.
-- **Ondas Dinámicas en el Agua (`rippleDetail 1`):** Activa perturbaciones físicas en la superficie acuática al nadar o caminar.
+- **Sombras Proyectadas Dinámicas (`shadowLevel 1`, `extShadowQuality 1`, `mapShadows 1`):** Sombras dinámicas reales de personajes, criaturas y árboles proyectadas sobre el relieve del mapa.
+- **Ondulaciones en el Agua (`waterRipples 1`):** Activa perturbaciones físicas en la superficie acuática al nadar o caminar.
 - **Reflejos Especulares (`specular 1`) y Texturas Proyectadas (`projectedTextures 1`):** Visibilidad garantizada de áreas de combate y brillo en metales.
 
 ### 4. Rendimiento Moderno y Audio
-- **Direct3D 9Ex (`gxApi "D3D9Ex"`):** Hace uso del modelo WDDM moderno en Windows 10 y 11, optimizando el intercambio de memoria de vídeo (VRAM) y eliminando micro-tirones y congelamientos al hacer Alt+Tab.
-- **Audio Multicanal (`Sound_NumChannels 128`):** Duplica los canales de mezcla acústica para evitar la pérdida de efectos de sonido o música en bandas de 25 jugadores.
+- **Direct3D 9 Nativo Estable (`gxApi "D3D9"`):** Renderizado estándar ultra-estable para GPUs modernas (AMD RDNA 3, Intel Arc, NVIDIA RTX) sin fugas de memoria ni fallos en Windows 11.
+- **Audio Multicanal (`Sound_NumChannels 128`):** 128 canales de mezcla acústica para evitar la pérdida de efectos de sonido o música en bandas masivas.
 
 ---
 
