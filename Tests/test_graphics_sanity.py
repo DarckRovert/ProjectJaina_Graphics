@@ -61,9 +61,9 @@ def test_syntax_and_structure():
     print("[PASS] GameMenuFrame anchor chain sequence validated (Options -> gmBtn -> Sound -> UIOptions).")
 
     # 6. Verify Version Synchronization
-    assert 'WPG.Version = "1.0.2"' in core_code, "Core.lua version mismatch (expected 1.0.2)"
-    assert '## Version: 1.0.2' in toc_content, "TOC version mismatch (expected 1.0.2)"
-    print("[PASS] Version synchronization 1.0.2 validated across TOC and Core.lua.")
+    assert 'WPG.Version = "1.0.3"' in core_code, "Core.lua version mismatch (expected 1.0.3)"
+    assert '## Version: 1.0.3' in toc_content, "TOC version mismatch (expected 1.0.3)"
+    print("[PASS] Version synchronization 1.0.3 validated across TOC and Core.lua.")
 
     print("\n>>> ALL WOWPERU_GRAPHICS REPOSITORY SANITY CHECKS PASSED 100% <<<")
 

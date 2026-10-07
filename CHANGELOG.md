@@ -5,6 +5,13 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 
 ---
 
+## [1.0.3] — 2026-10-07
+
+### 🐛 Corregido (Mitigación de Agotamiento de Heap en Texturas HD - Texture.cpp:2057)
+- **Calibración de Preset Ultra para Entornos HD de 32-bit:** Reducido `farclip` de 1277 a 850 y `groundEffectDensity` de 256 a 128 en el perfil `ultra`, evitando la saturación de 25 celdas ADT simultáneas y la fragmentación del espacio virtual de 32 bits del cliente bajo D3D9.
+- **Sintonización de Canales de Sonido y Caché de Texturas:** Establecido `Sound_NumChannels "64"` y `textureCacheSize "64"` para optimizar el reciclaje de texturas en RAM y liberar memoria contigua para el asignador nativo de Blizzard.
+- **Persistencia de `gxApi "D3D9"`:** Asegurada la persistencia del subsistema gráfico Direct3D 9 estándar sin colisiones de ensamblado de modelos.
+
 ## [1.0.2] — 2026-10-07
 
 ### 🐛 Corregido (Alineación de UI & Anclaje de Menú Nativo)
