@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: |cFFFFD700WoW Perú|r - |cFF00FFCCGráficos HD & Opciones Avanzadas|r
+## Notes: Panel visual interactivo de renderizado nativo, nitidez cristalina, sombras proyectadas y presets de rendimiento para WoW 3.3.5a.
+## Author: WoW Perú Dev Team
+## Version: 1.0.0
+## SavedVariables: WoWPeruGraphics_DB
+
+Core.lua
+UI.lua

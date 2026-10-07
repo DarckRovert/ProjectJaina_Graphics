@@ -1,0 +1,15 @@
+# World of Warcraft Addon Git Ignore
+*.bak
+*.orig
+*~
+.DS_Store
+Thumbs.db
+
+# SavedVariables locales de prueba
+WTF/
+*.wtf
+
+# Entornos virtuales y cachés Python
+__pycache__/
+*.pyc
+.pytest_cache/
