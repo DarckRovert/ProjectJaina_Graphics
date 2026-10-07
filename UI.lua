@@ -130,7 +130,7 @@ function WPG:CreateMainUI()
 
     local subtitle = header:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -2)
-    subtitle:SetText("Fidelidad visual cristalina sin filtros externos |cFF60626B·|r Motor 3.3.5a D3D9Ex")
+    subtitle:SetText("Fidelidad visual cristalina sin filtros externos |cFF60626B·|r Motor 3.3.5a Direct3D 9 Nativo")
 
     -- Botón de cerrar [X]
     local closeBtn = CreateFrame("Button", nil, header, "UIPanelCloseButton")
@@ -415,7 +415,7 @@ function WPG:CreateMainUI()
     d3dTitle:SetPoint("TOPLEFT", col3, "TOPLEFT", 10, yPos3 - 82)
     d3dTitle:SetText("|cFFFFD700Motor DirectX (gxApi):|r")
 
-    local function CrearBotonAPI(texto, apiVal, x, y)
+    local function CrearBotonAPI(texto, apiVal, tooltipTitle, tooltipDesc, x, y)
         local btn = CreateFrame("Button", nil, col3)
         btn:SetWidth(98)
         btn:SetHeight(22)
@@ -432,16 +432,29 @@ function WPG:CreateMainUI()
         btn:SetScript("OnClick", function(self)
             PlaySound("igMainMenuOption")
             WPG:SetCVar("gxApi", self.apiVal)
-            WPG:Print("Motor gráfico asignado a: " .. self.apiVal .. " (Aplica tras reiniciar)")
+            if self.apiVal == "D3D9Ex" then
+                WPG:Print("|cFFFF3333[AVISO GPU]|r D3D9Ex puede generar Error #132 en GPUs AMD Radeon bajo Windows 11 al componer texturas HD.")
+            else
+                WPG:Print("Motor gráfico asignado a: " .. self.apiVal .. " (Aplica tras reiniciar Wow.exe)")
+            end
             WPG:RefreshButtons()
         end)
+
+        btn:SetScript("OnEnter", function(self)
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:SetText(tooltipTitle, 1, 0.82, 0)
+            GameTooltip:AddLine(tooltipDesc, 1, 1, 1, true)
+            GameTooltip:AddLine("CVar: gxApi " .. self.apiVal, 0.5, 0.5, 0.5)
+            GameTooltip:Show()
+        end)
+        btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
         UI_CONTROLS.apiButtons[#UI_CONTROLS.apiButtons + 1] = btn
         return btn
     end
 
-    CrearBotonAPI("D3D9 (Estable)", "D3D9", 10, yPos3 - 102)
-    CrearBotonAPI("D3D9Ex (Experimental)", "D3D9Ex", 114, yPos3 - 102)
+    CrearBotonAPI("D3D9 (Estable)", "D3D9", "Direct3D 9 Nativo (Recomendado)", "Modo estándar con gestión nativa de memoria D3DPOOL_MANAGED. Cero fallos de violación de acceso en AMD Radeon, Intel y NVIDIA.", 10, yPos3 - 102)
+    CrearBotonAPI("D3D9Ex (Inestable)", "D3D9Ex", "Direct3D 9Ex (No recomendado)", "|cFFFF3333PELIGRO DE CRASH:|r Causa 'Error #132 (Access Violation 0xC0000005)' en controladores AMD modernos (Radeon 780M) al bloquear texturas dinámicas de personajes.", 114, yPos3 - 102)
 
     -- Canales de Sonido
     local sndTitle = col3:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
