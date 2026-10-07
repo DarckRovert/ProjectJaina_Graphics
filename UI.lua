@@ -130,7 +130,7 @@ function WPG:CreateMainUI()
 
     local subtitle = header:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -2)
-    subtitle:SetText("Fidelidad visual cristalina sin filtros externos • Motor 3.3.5a D3D9Ex")
+    subtitle:SetText("Fidelidad visual cristalina sin filtros externos |cFF60626B·|r Motor 3.3.5a D3D9Ex")
 
     -- Botón de cerrar [X]
     local closeBtn = CreateFrame("Button", nil, header, "UIPanelCloseButton")
@@ -171,9 +171,9 @@ function WPG:CreateMainUI()
         return btn
     end
 
-    CrearBotonPreset("💎 Ultra HD Nativo", "ultra", 120, c.cian)
-    CrearBotonPreset("⚔️ Raid 25 (120 FPS)", "raid", 300, c.oro)
-    CrearBotonPreset("🔄 Original Blizzard", "classic", 480, c.textoSuave)
+    CrearBotonPreset("Ultra HD Nativo", "ultra", 120, c.cian)
+    CrearBotonPreset("Raid 25 (120 FPS)", "raid", 300, c.oro)
+    CrearBotonPreset("Original Blizzard", "classic", 480, c.textoSuave)
 
     -- ========================================================================
     -- CONTENEDORES DE LAS 3 COLUMNAS TÉCNICAS
@@ -495,7 +495,7 @@ function WPG:CreateMainUI()
     
     local rText = restartBtn:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     rText:SetPoint("CENTER")
-    rText:SetText("|cFFFFD700⚡ Reiniciar Motor (RestartGx)|r")
+    rText:SetText("|cFFFFD700Reiniciar Motor (RestartGx)|r")
 
     EstilarBoton(restartBtn, c.oro, c.cian)
 
@@ -527,7 +527,7 @@ function WPG:CreateMainUI()
             elapsedTimer = 0
             local curFPS = math.floor(GetFramerate() or 0)
             local memKB = math.floor(gcinfo() or 0)
-            fpsText:SetText(string.format("|cFF00FFCCFPS:|r %d  |cFF60626B•|r  |cFFFFD700Memoria:|r %d KB", curFPS, memKB))
+            fpsText:SetText(string.format("|cFF00FFCCFPS:|r %d  |cFF60626B·|r  |cFFFFD700Memoria:|r %d KB", curFPS, memKB))
         end
     end)
 

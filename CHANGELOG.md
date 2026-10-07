@@ -5,6 +5,13 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 
 ---
 
+## [1.0.2] — 2026-10-07
+
+### 🐛 Corregido (Alineación de UI & Anclaje de Menú Nativo)
+- **Corrección de Cadena de Anclaje en `GameMenuFrame`:** Reanclado quirúrgico del botón `GameMenuButtonSoundOptions` ("Sonido") inmediatamente debajo de `GameMenuButton_WoWPeruGraphics` ("Gráficos HD"), y `GameMenuButtonUIOptions` ("Interfaz") debajo de Sonido. Elimina la superposición visual donde Gráficos HD se dibujaba sobre Sonido.
+- **Incremento Determinista de Altura de Menú:** Asegurada expansión de 22 px en `GameMenuFrame` con cerrojo de ejecución única para alojar el nuevo botón sin recortar el marco inferior ni colisionar con ACP / Accesorios.
+- **Saneamiento de Glifos Unicode (Eliminación de `?`):** Erradicados emojis incompatibles con la tipografía oficial `FRIZQT__.TTF` de 3.3.5a (`✨`, `💎`, `⚔️`, `🔄`, `⚡`) en botones de GameMenuFrame, VideoOptionsFrame y perfiles rápidos, asegurando renderizado tipográfico nativo libre de caracteres corruptos.
+
 ## [1.0.1] — 2026-10-07
 
 ### 🐛 Corregido (Diagnóstico Forense Error #132)

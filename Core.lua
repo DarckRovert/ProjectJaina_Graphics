@@ -10,7 +10,7 @@ WoWPeru_Graphics = WoWPeru_Graphics or {}
 local WPG = WoWPeru_Graphics
 
 -- Estado y versión
-WPG.Version = "1.0.1"
+WPG.Version = "1.0.2"
 WPG.Title = "|cFFFFD700WoW Perú|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
@@ -176,7 +176,7 @@ function WPG:InitUIHooks()
         hdBtn:SetWidth(150)
         hdBtn:SetHeight(22)
         hdBtn:SetPoint("TOPRIGHT", VideoOptionsFrame, "TOPRIGHT", -40, -14)
-        hdBtn:SetText("|cFFFFD700✨ Opciones HD|r")
+        hdBtn:SetText("|cFFFFD700Opciones HD|r")
         hdBtn:SetScript("OnClick", function()
             WPG:ToggleUI()
         end)
@@ -185,24 +185,37 @@ function WPG:InitUIHooks()
     -- 2. Botón en GameMenuFrame (Menú de Escape)
     if GameMenuFrame then
         local gmBtn = CreateFrame("Button", "GameMenuButton_WoWPeruGraphics", GameMenuFrame, "GameMenuButtonTemplate")
-        gmBtn:SetText("|cFFFFD700✨ Gráficos HD|r")
+        gmBtn:SetText("|cFFFFD700Gráficos HD|r")
         
         local btnWidth = (GameMenuButtonOptions and GameMenuButtonOptions:GetWidth() and GameMenuButtonOptions:GetWidth() > 0) and GameMenuButtonOptions:GetWidth() or 144
         gmBtn:SetWidth(btnWidth)
         gmBtn:SetHeight(21)
 
+        local function AdjustGameMenuAnchors()
+            if GameMenuButtonOptions and GameMenuButtonSoundOptions then
+                gmBtn:ClearAllPoints()
+                gmBtn:SetPoint("TOP", GameMenuButtonOptions, "BOTTOM", 0, -1)
+
+                GameMenuButtonSoundOptions:ClearAllPoints()
+                GameMenuButtonSoundOptions:SetPoint("TOP", gmBtn, "BOTTOM", 0, -1)
+
+                if GameMenuButtonUIOptions then
+                    GameMenuButtonUIOptions:ClearAllPoints()
+                    GameMenuButtonUIOptions:SetPoint("TOP", GameMenuButtonSoundOptions, "BOTTOM", 0, -1)
+                end
+            end
+        end
+
         local heightAdjusted = false
         GameMenuFrame:HookScript("OnShow", function(self)
             if not heightAdjusted then
-                self:SetHeight(self:GetHeight() + 24)
+                self:SetHeight(self:GetHeight() + 22)
                 heightAdjusted = true
             end
-            if GameMenuButtonOptions and GameMenuButtonUIOptions then
-                gmBtn:ClearAllPoints()
-                gmBtn:SetPoint("TOP", GameMenuButtonOptions, "BOTTOM", 0, -1)
-                GameMenuButtonUIOptions:SetPoint("TOP", gmBtn, "BOTTOM", 0, -1)
-            end
+            AdjustGameMenuAnchors()
         end)
+
+        AdjustGameMenuAnchors()
 
         gmBtn:SetScript("OnClick", function()
             PlaySound("igMainMenuOption")

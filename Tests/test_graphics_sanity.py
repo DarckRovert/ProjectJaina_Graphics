@@ -44,7 +44,26 @@ def test_syntax_and_structure():
         ]
         for bad_cvar in forbidden_cvars:
             assert bad_cvar not in code, f"Forbidden/fake CVar '{bad_cvar}' found in {lua_file}"
-        print(f"[PASS] {lua_file} adheres to 3.3.5a engine rules and verified CVar whitelist.")
+        
+        # 4. Unicode Glyph Hygiene Check (no unrenderable emojis in 3.3.5a fonts)
+        for idx, line in enumerate(code.splitlines(), 1):
+            for ch in line:
+                assert ord(ch) <= 0x024F, f"Unrenderable glyph '{ch}' (U+{ord(ch):04X}) at {lua_file}:{idx}"
+        print(f"[PASS] {lua_file} adheres to 3.3.5a engine rules, verified CVar whitelist, and font glyph hygiene.")
+
+    # 5. Verify GameMenuFrame Anchor Chain Integrity in Core.lua
+    core_path = os.path.join(base_dir, "Core.lua")
+    with open(core_path, "r", encoding="utf-8") as f:
+        core_code = f.read()
+    assert 'gmBtn:SetPoint("TOP", GameMenuButtonOptions, "BOTTOM", 0, -1)' in core_code, "gmBtn anchor to GameMenuButtonOptions missing"
+    assert 'GameMenuButtonSoundOptions:SetPoint("TOP", gmBtn, "BOTTOM", 0, -1)' in core_code, "GameMenuButtonSoundOptions anchor to gmBtn missing"
+    assert 'GameMenuButtonUIOptions:SetPoint("TOP", GameMenuButtonSoundOptions, "BOTTOM", 0, -1)' in core_code, "GameMenuButtonUIOptions anchor to Sound missing"
+    print("[PASS] GameMenuFrame anchor chain sequence validated (Options -> gmBtn -> Sound -> UIOptions).")
+
+    # 6. Verify Version Synchronization
+    assert 'WPG.Version = "1.0.2"' in core_code, "Core.lua version mismatch (expected 1.0.2)"
+    assert '## Version: 1.0.2' in toc_content, "TOC version mismatch (expected 1.0.2)"
+    print("[PASS] Version synchronization 1.0.2 validated across TOC and Core.lua.")
 
     print("\n>>> ALL WOWPERU_GRAPHICS REPOSITORY SANITY CHECKS PASSED 100% <<<")
 
