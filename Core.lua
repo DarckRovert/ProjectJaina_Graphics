@@ -72,24 +72,25 @@ end
 WPG.Presets = {
     ultra = {
         name = "Ultra HD Nativo (Fidelidad Máxima)",
-        desc = "Nitidez cristalina sin desenfoque lechoso, sombras proyectadas dinámicas, vegetación máxima 256, filtrado anisótropo 16x y audio a 128 canales.",
+        desc = "Nitidez cristalina sin desenfoque lechoso, sombras proyectadas dinámicas, vegetación densa, filtrado anisótropo 16x y audio optimizado para 32-bit.",
         cvars = {
             ffxGlow              = "0",    -- Nitidez cristalina (elimina el bloom lechoso)
             ffxDeath             = "0",    -- Claridad sin desenfoque en modo fantasma
-            groundEffectDensity  = "256",  -- Densidad cuádruple de césped y flores
-            groundEffectDist     = "140",  -- Máxima distancia de vegetación
+            groundEffectDensity  = "128",  -- Densidad frondosa calibrada para parches HD
+            groundEffectDist     = "80",   -- Distancia balanceada de vegetación
             detailDoodadAlpha    = "100",  -- Visibilidad completa de objetos del suelo
             shadowLevel          = "1",    -- Sombras proyectadas dinámicas estables
             extShadowQuality     = "1",    -- Calidad dinámica sin artefactos
             waterRipples         = "1",    -- Ondulaciones en el agua
-            farclip              = "1277", -- Distancia de visión máxima del motor
-            environmentDetail    = "1.5",  -- Detalle de edificios y elementos WMO
+            farclip              = "850",  -- Distancia de visión panorámica óptima para evitar OOM de texturas HD
+            environmentDetail    = "1.0",  -- Detalle geométrico de edificios
             weatherDensity       = "3",    -- Lluvia, nieve y niebla detallada
             particleDensity      = "1",    -- Partículas y magia al 100%
             specular             = "1",    -- Reflejos especulares en metales
             projectedTextures    = "1",    -- Áreas de hechizos en el suelo visibles
             anisotropic          = "16",   -- Filtrado anisótropo 16x de terreno
-            Sound_NumChannels    = "128",  -- 128 canales de sonido (cero cortes en raid)
+            Sound_NumChannels    = "64",   -- 64 canales para proteger el heap de 32 bits
+            textureCacheSize     = "64",   -- Caché máximo de texturas en RAM
             gxApi                = "D3D9", -- Direct3D 9 estándar y estable (cero fallos en AMD/Intel/Nvidia)
         }
     },
