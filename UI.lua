@@ -263,10 +263,10 @@ function WPG:CreateMainUI()
     AddCheckbox(col1, "Claridad Estado Fantasma", "ffxDeath", true,
         "Elimina la distorsión borrosa en blanco y negro al morir.", 10, yPos1 + ySpacing)
 
-    AddCheckbox(col1, "Anisótropo 16x en Modelos 3D", "M2ForceBilinear", true,
-        "Fuerza filtrado anisótropo en personajes y criaturas (M2) en lugar de filtrado bilinear borroso.", 10, yPos1 + ySpacing * 2)
+    AddCheckbox(col1, "Sombras en el Terreno", "mapShadows", false,
+        "Proyecta sombras dinámicas sobre el relieve del terreno del mapa.", 10, yPos1 + ySpacing * 2)
 
-    AddCheckbox(col1, "Ondas Dinámicas en Agua", "rippleDetail", false,
+    AddCheckbox(col1, "Ondulaciones en Agua", "waterRipples", false,
         "Activa ondulaciones físicas en el agua al caminar o nadar.", 10, yPos1 + ySpacing * 3)
 
     AddCheckbox(col1, "Texturas Proyectadas", "projectedTextures", false,
@@ -275,8 +275,8 @@ function WPG:CreateMainUI()
     AddCheckbox(col1, "Brillo Especular de Armaduras", "specular", false,
         "Reflejos de luz sobre metales pulidos y armaduras de placas.", 10, yPos1 + ySpacing * 5)
 
-    AddCheckbox(col1, "Sombreadores M2 Avanzados", "M2UseShaders", false,
-        "Habilita shaders modernos en modelos tridimensionales.", 10, yPos1 + ySpacing * 6)
+    AddCheckbox(col1, "Optimización de Mallas M2", "M2Faster", false,
+        "Activa aceleración de renderizado en modelos tridimensionales.", 10, yPos1 + ySpacing * 6)
 
     AddCheckbox(col1, "Objetos sin Desvanecimiento", "objectFade", true,
         "Evita que objetos lejanos desaparezcan prematuramente.", 10, yPos1 + ySpacing * 7)
@@ -314,21 +314,27 @@ function WPG:CreateMainUI()
         s.stepVal = stepVal
 
         s:SetScript("OnValueChanged", function(self, value)
-            if self.stepVal and self.stepVal > 1 then
+            if self.stepVal and self.stepVal < 1 then
                 value = math.floor(value / self.stepVal + 0.5) * self.stepVal
+                self.valLabel:SetText(string.format("|cFF00FFCC%.1f|r", value))
+                WPG:SetCVar(self.cvar, string.format("%.1f", value))
             else
-                value = math.floor(value + 0.5)
-            end
+                if self.stepVal and self.stepVal > 1 then
+                    value = math.floor(value / self.stepVal + 0.5) * self.stepVal
+                else
+                    value = math.floor(value + 0.5)
+                end
 
-            if self.cvar == "maxFPS" and value == 0 then
-                self.valLabel:SetText("|cFF00FFCCIlimitado (0)|r")
-            elseif self.cvar == "maxFPS" then
-                self.valLabel:SetText("|cFF00FFCC" .. tostring(value) .. " FPS|r")
-            else
-                self.valLabel:SetText("|cFF00FFCC" .. tostring(value) .. "|r")
-            end
+                if self.cvar == "maxFPS" and value == 0 then
+                    self.valLabel:SetText("|cFF00FFCCIlimitado (0)|r")
+                elseif self.cvar == "maxFPS" then
+                    self.valLabel:SetText("|cFF00FFCC" .. tostring(value) .. " FPS|r")
+                else
+                    self.valLabel:SetText("|cFF00FFCC" .. tostring(value) .. "|r")
+                end
 
-            WPG:SetCVar(self.cvar, tostring(value))
+                WPG:SetCVar(self.cvar, tostring(value))
+            end
         end)
 
         s:SetScript("OnEnter", function(self)
@@ -356,8 +362,8 @@ function WPG:CreateMainUI()
     AddSlider(col2, "Distancia de Visión (Farclip)", "farclip", 300, 1277, 50,
         "Distancia máxima de dibujo del terreno y estructuras.", 16, yPos2 + sSpacing * 2)
 
-    AddSlider(col2, "Distancia de Horizonte", "horizonfarclip", 1000, 3000, 200,
-        "Distancia de visualización de montañas lejanas, cielo y niebla.", 16, yPos2 + sSpacing * 3)
+    AddSlider(col2, "Detalle de Entorno (WMO)", "environmentDetail", 0.5, 1.5, 0.1,
+        "Nivel de detalle geométrico y distancia de estructuras en el mundo.", 16, yPos2 + sSpacing * 3)
 
     AddSlider(col2, "Límite de FPS (0 = Ilimitado)", "maxFPS", 0, 240, 10,
         "Tasa de cuadros por segundo máxima. 0 para FPS ilimitado; 120 o 144 para monitores de alta frecuencia.", 16, yPos2 + sSpacing * 4)
@@ -372,7 +378,7 @@ function WPG:CreateMainUI()
     shTitle:SetPoint("TOPLEFT", col3, "TOPLEFT", 10, yPos3)
     shTitle:SetText("|cFFFFD700Modo de Sombras Dinámicas:|r")
 
-    local function CrearBotonSombra(texto, sLevel, extQ, sSize, x, y, w)
+    local function CrearBotonSombra(texto, sLevel, extQ, x, y, w)
         local btn = CreateFrame("Button", nil, col3)
         btn:SetWidth(w or 96)
         btn:SetHeight(22)
@@ -381,10 +387,9 @@ function WPG:CreateMainUI()
         local fontStr = btn:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
         fontStr:SetPoint("CENTER")
         fontStr:SetText(texto)
-        btn.text = fontStr
+        btn.text   = fontStr
         btn.sLevel = sLevel
         btn.extQ   = extQ
-        btn.sSize  = sSize
 
         EstilarBoton(btn, c.borde, c.verde)
 
@@ -392,7 +397,6 @@ function WPG:CreateMainUI()
             PlaySound("igMainMenuOption")
             WPG:SetCVar("shadowLevel", tostring(self.sLevel))
             WPG:SetCVar("extShadowQuality", tostring(self.extQ))
-            WPG:SetCVar("shadowTextureSize", tostring(self.sSize))
             WPG:Print("Sombras configuradas: " .. texto)
             WPG:RefreshButtons()
         end)
@@ -401,10 +405,10 @@ function WPG:CreateMainUI()
         return btn
     end
 
-    CrearBotonSombra("Desactivadas", 0, 0, 512, 10, yPos3 - 20, 98)
-    CrearBotonSombra("Básicas (Óvalo)", 1, 0, 1024, 114, yPos3 - 20, 98)
-    CrearBotonSombra("Dinámicas 1024", 2, 1, 1024, 10, yPos3 - 46, 98)
-    CrearBotonSombra("Ultra 2048px", 2, 2, 2048, 114, yPos3 - 46, 98)
+    CrearBotonSombra("Desactivadas", 0, 0, 10, yPos3 - 20, 98)
+    CrearBotonSombra("Básicas (Óvalo)", 1, 0, 114, yPos3 - 20, 98)
+    CrearBotonSombra("Dinámicas", 1, 1, 10, yPos3 - 46, 98)
+    CrearBotonSombra("Avanzadas", 2, 1, 114, yPos3 - 46, 98)
 
     -- Motor Gráfico Direct3D
     local d3dTitle = col3:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
@@ -436,8 +440,8 @@ function WPG:CreateMainUI()
         return btn
     end
 
-    CrearBotonAPI("D3D9Ex (Win10/11)", "D3D9Ex", 10, yPos3 - 102)
-    CrearBotonAPI("D3D9 (Clásico)", "D3D9", 114, yPos3 - 102)
+    CrearBotonAPI("D3D9 (Estable)", "D3D9", 10, yPos3 - 102)
+    CrearBotonAPI("D3D9Ex (Experimental)", "D3D9Ex", 114, yPos3 - 102)
 
     -- Canales de Sonido
     local sndTitle = col3:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
@@ -551,7 +555,7 @@ end
 function WPG:RefreshButtons()
     local sLevel = WPG:GetCVarNum("shadowLevel", 1)
     local extQ   = WPG:GetCVarNum("extShadowQuality", 0)
-    local curApi = WPG:GetCVar("gxApi", "D3D9Ex")
+    local curApi = WPG:GetCVar("gxApi", "D3D9")
     local curSnd = WPG:GetCVarNum("Sound_NumChannels", 128)
 
     -- Sombras
@@ -624,6 +628,8 @@ function WPG:RefreshUI()
                 s.valLabel:SetText("|cFF00FFCCIlimitado (0)|r")
             elseif s.cvar == "maxFPS" then
                 s.valLabel:SetText("|cFF00FFCC" .. tostring(numVal) .. " FPS|r")
+            elseif s.stepVal and s.stepVal < 1 then
+                s.valLabel:SetText(string.format("|cFF00FFCC%.1f|r", numVal))
             else
                 s.valLabel:SetText("|cFF00FFCC" .. tostring(numVal) .. "|r")
             end

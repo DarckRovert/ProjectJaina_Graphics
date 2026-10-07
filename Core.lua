@@ -10,7 +10,7 @@ WoWPeru_Graphics = WoWPeru_Graphics or {}
 local WPG = WoWPeru_Graphics
 
 -- Estado y versión
-WPG.Version = "1.0.0"
+WPG.Version = "1.0.1"
 WPG.Title = "|cFFFFD700WoW Perú|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
@@ -72,20 +72,17 @@ end
 WPG.Presets = {
     ultra = {
         name = "Ultra HD Nativo (Fidelidad Máxima)",
-        desc = "Nitidez cristalina sin desenfoque lechoso, sombras proyectadas completas 2048px, vegetación máxima 256, filtrado anisótropo 16x en modelos 3D y audio a 128 canales.",
+        desc = "Nitidez cristalina sin desenfoque lechoso, sombras proyectadas dinámicas, vegetación máxima 256, filtrado anisótropo 16x y audio a 128 canales.",
         cvars = {
             ffxGlow              = "0",    -- Nitidez cristalina (elimina el bloom lechoso)
             ffxDeath             = "0",    -- Claridad sin desenfoque en modo fantasma
             groundEffectDensity  = "256",  -- Densidad cuádruple de césped y flores
             groundEffectDist     = "140",  -- Máxima distancia de vegetación
             detailDoodadAlpha    = "100",  -- Visibilidad completa de objetos del suelo
-            shadowLevel          = "2",    -- Sombras proyectadas dinámicas completas
-            extShadowQuality     = "2",    -- Suavizado ultra de sombras
-            shadowTextureSize    = "2048", -- Resolución 2K para mapa de sombras
-            M2ForceBilinear      = "0",    -- Filtrado anisótropo en personajes/armaduras
-            rippleDetail         = "1",    -- Ondas dinámicas en el agua
+            shadowLevel          = "1",    -- Sombras proyectadas dinámicas estables
+            extShadowQuality     = "1",    -- Calidad dinámica sin artefactos
+            waterRipples         = "1",    -- Ondulaciones en el agua
             farclip              = "1277", -- Distancia de visión máxima del motor
-            horizonfarclip       = "3000", -- Distancia máxima de montañas y cielo
             environmentDetail    = "1.5",  -- Detalle de edificios y elementos WMO
             weatherDensity       = "3",    -- Lluvia, nieve y niebla detallada
             particleDensity      = "1",    -- Partículas y magia al 100%
@@ -93,7 +90,7 @@ WPG.Presets = {
             projectedTextures    = "1",    -- Áreas de hechizos en el suelo visibles
             anisotropic          = "16",   -- Filtrado anisótropo 16x de terreno
             Sound_NumChannels    = "128",  -- 128 canales de sonido (cero cortes en raid)
-            gxApi                = "D3D9Ex", -- Direct3D 9Ex (cero microstutters en Win 10/11)
+            gxApi                = "D3D9", -- Direct3D 9 estándar y estable (cero fallos en AMD/Intel/Nvidia)
         }
     },
     raid = {
@@ -106,16 +103,13 @@ WPG.Presets = {
             groundEffectDist     = "70",
             shadowLevel          = "1",
             extShadowQuality     = "0",
-            shadowTextureSize    = "1024",
-            M2ForceBilinear      = "0",
-            rippleDetail         = "0",
             farclip              = "777",
-            horizonfarclip       = "1500",
             environmentDetail    = "1.0",
             particleDensity      = "0.8",
             specular             = "1",
             projectedTextures    = "1",
             Sound_NumChannels    = "128",
+            gxApi                = "D3D9",
         }
     },
     classic = {
@@ -128,15 +122,12 @@ WPG.Presets = {
             groundEffectDist     = "70",
             shadowLevel          = "1",
             extShadowQuality     = "0",
-            shadowTextureSize    = "1024",
-            M2ForceBilinear      = "1",
-            rippleDetail         = "0",
             farclip              = "777",
-            horizonfarclip       = "1000",
             environmentDetail    = "1.0",
             weatherDensity       = "1",
             particleDensity      = "1",
             Sound_NumChannels    = "64",
+            gxApi                = "D3D9",
         }
     }
 }

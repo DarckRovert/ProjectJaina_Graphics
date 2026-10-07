@@ -37,7 +37,14 @@ def test_syntax_and_structure():
         assert "SetColorTexture" not in code, f"Forbidden SetColorTexture found in {lua_file}"
         assert "C_Timer.After" not in code, f"Forbidden C_Timer.After found in {lua_file}"
         assert "IsInRaid" not in code, f"Forbidden IsInRaid found in {lua_file}"
-        print(f"[PASS] {lua_file} adheres to 3.3.5a engine rules.")
+        # Check that forbidden or fake CVars are never used
+        forbidden_cvars = [
+            "componentTextureLevel", "shadowTextureSize", "M2ForceBilinear",
+            "M2UseShaders", "rippleDetail", "horizonfarclip", "SmallCull", "DistCull"
+        ]
+        for bad_cvar in forbidden_cvars:
+            assert bad_cvar not in code, f"Forbidden/fake CVar '{bad_cvar}' found in {lua_file}"
+        print(f"[PASS] {lua_file} adheres to 3.3.5a engine rules and verified CVar whitelist.")
 
     print("\n>>> ALL WOWPERU_GRAPHICS REPOSITORY SANITY CHECKS PASSED 100% <<<")
 

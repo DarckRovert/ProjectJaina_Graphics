@@ -5,6 +5,14 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 
 ---
 
+## [1.0.1] — 2026-10-07
+
+### 🐛 Corregido (Diagnóstico Forense Error #132)
+- **Eliminación de `componentTextureLevel`:** Se erradicó la CVar experimental que provocaba desbordamiento de buffer en el blitter de texturas de personajes (`0x00411EB7`, vector SSE2 `movdqa [edi], xmm0`).
+- **Saneamiento Estricto de CVars en `Core.lua` y `UI.lua`:** Reemplazadas variables inexistentes del motor (`shadowTextureSize`, `M2ForceBilinear`, `rippleDetail`, `horizonfarclip`) por sus equivalentes nativos certificados del binario `Wow.exe` 12340 (`mapShadows`, `waterRipples`, `M2Faster`, `environmentDetail`).
+- **Estabilidad de GPU AMD Radeon 780M:** Configurado `gxApi "D3D9"` y niveles de sombras nativos como estándar de máxima robustez para controladores modernos en Windows 11.
+- **Suite de Pruebas:** Ampliada la suite `test_graphics_sanity.py` con lista negra y verificación de lista blanca de CVars.
+
 ## [1.0.0] — 2026-10-07
 
 ### ✨ Añadido
