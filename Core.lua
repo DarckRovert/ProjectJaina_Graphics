@@ -10,7 +10,7 @@ WoWPeru_Graphics = WoWPeru_Graphics or {}
 local WPG = WoWPeru_Graphics
 
 -- Estado y versión
-WPG.Version = "1.0.2"
+WPG.Version = "1.0.3"
 WPG.Title = "|cFFFFD700WoW Perú|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
