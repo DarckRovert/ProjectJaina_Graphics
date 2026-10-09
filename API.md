@@ -1,6 +1,6 @@
-# 🔌 Documentación de API — Wanos_Graphics
+# 🔌 Documentación de API — ProjectJaina_Graphics
 
-Interfaz pública y funciones de control del módulo `Wanos_Graphics`.
+Interfaz pública y funciones de control del módulo `ProjectJaina_Graphics`.
 
 ---
 
@@ -9,7 +9,7 @@ Interfaz pública y funciones de control del módulo `Wanos_Graphics`.
 Toda la funcionalidad pública se exporta bajo la tabla global:
 
 ```lua
-Wanos_Graphics = Wanos_Graphics or {}
+ProjectJaina_Graphics = ProjectJaina_Graphics or {}
 ```
 
 ---
@@ -20,7 +20,7 @@ Wanos_Graphics = Wanos_Graphics or {}
 Abre o cierra la ventana principal de la suite gráfica. Si la ventana no ha sido creada aún, ejecuta `CreateMainUI()` de forma perezosa (*lazy initialization*).
 
 ```lua
-Wanos_Graphics:ToggleUI()
+ProjectJaina_Graphics:ToggleUI()
 ```
 
 ---
@@ -33,7 +33,7 @@ Aplica en caliente un perfil de renderizado completo, ejecutando las llamadas `S
 
 ```lua
 -- Ejemplo: Forzar modo ultra fidelidad desde un macro u otro addon
-Wanos_Graphics:ApplyPreset("ultra")
+ProjectJaina_Graphics:ApplyPreset("ultra")
 ```
 
 ---

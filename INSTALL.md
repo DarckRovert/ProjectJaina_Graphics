@@ -1,6 +1,6 @@
-# 📦 Guía de Instalación — Wanos_Graphics
+# 📦 Guía de Instalación — ProjectJaina_Graphics
 
-Instrucciones oficiales para instalar y verificar **Wanos_Graphics** en el cliente **World of Warcraft 3.3.5a (Build 12340)** de **Project Jaina - Project Jaina**.
+Instrucciones oficiales para instalar y verificar **ProjectJaina_Graphics** en el cliente **World of Warcraft 3.3.5a (Build 12340)** de **Project Jaina - Project Jaina**.
 
 ---
 
@@ -12,17 +12,17 @@ Abre una terminal PowerShell en el directorio de addons del cliente:
 
 ```powershell
 cd "E:\ProjectJaina_FHD\Client\Interface\AddOns\"
-git clone https://github.com/DarckRovert/Wanos_Graphics.git
+git clone https://github.com/DarckRovert/ProjectJaina_Graphics.git
 ```
 
 ### Método 2: Instalación Manual
 
-1. Copia la carpeta `Wanos_Graphics` dentro del directorio:
+1. Copia la carpeta `ProjectJaina_Graphics` dentro del directorio:
    ```
-   Client/Interface/AddOns/Wanos_Graphics/
+   Client/Interface/AddOns/ProjectJaina_Graphics/
    ```
 2. Asegúrate de que los archivos principales se ubiquen directamente en la raíz de esa carpeta:
-   - `Wanos_Graphics.toc`
+   - `ProjectJaina_Graphics.toc`
    - `Core.lua`
    - `UI.lua`
 

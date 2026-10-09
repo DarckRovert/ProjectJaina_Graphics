@@ -1,4 +1,4 @@
-# 🌐 Registro de Ecosistema — Wanos_Graphics
+# 🌐 Registro de Ecosistema — ProjectJaina_Graphics
 
 Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina - Project Jaina**.
 
@@ -8,14 +8,14 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **Projec
 
 | Campo | Valor |
 |---|---|
-| **Nombre Técnico** | `Wanos_Graphics` |
-| **Carpeta Local** | `Wanos_Graphics` |
+| **Nombre Técnico** | `ProjectJaina_Graphics` |
+| **Carpeta Local** | `ProjectJaina_Graphics` |
 | **Versión Actual** | `1.0.0` |
 | **Clasificación** | Cliente / Motor Gráfico & Renderizado Nativo |
 | **Licencia Formal** | MIT |
-| **Repositorio GitHub** | [Wanos_Graphics](https://github.com/DarckRovert/Wanos_Graphics) |
+| **Repositorio GitHub** | [ProjectJaina_Graphics](https://github.com/DarckRovert/ProjectJaina_Graphics) |
 | **Entorno de Juego** | World of Warcraft 3.3.5a (Build 12340) / WotLK |
-| **Persistencia** | `WanosGraphics_DB` (por cuenta / `SavedVariables`) |
+| **Persistencia** | `Project JainaGraphics_DB` (por cuenta / `SavedVariables`) |
 
 ---
 
@@ -35,4 +35,4 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **Projec
 | **`Config.wtf`** | Sincronización Bidireccional | Lee y escribe variables de renderizado nativo en el archivo de configuración del juego. |
 | **`cDF` (DragonflightUI)** | Coexistencia Armónica | Provee nitidez máxima a las texturas 2x de la interfaz sin interferir con la barra de acción o micromenús. |
 | **`ACP` (Addon Control Panel)** | Inmunidad de Anclaje | Convive de forma limpia en `GameMenuFrame` sin colisión de alturas ni rotura de botones de Desconectar. |
-| **`Wanos_Companion`** | Telemetría | Provee un entorno con alta tasa de cuadros para el renderizado de badges e interfaces sociales. |
+| **`ProjectJaina_Companion`** | Telemetría | Provee un entorno con alta tasa de cuadros para el renderizado de badges e interfaces sociales. |

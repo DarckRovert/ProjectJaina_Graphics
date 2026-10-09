@@ -157,12 +157,12 @@ frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
 
 frame:SetScript("OnEvent", function(self, event, arg1)
-    if event == "ADDON_LOADED" and (arg1 == "Wanos_Graphics" or arg1 == "ProjectJaina_Graphics") then
-        Wanos_Graphics_DB = Wanos_Graphics_DB or ProjectJainaGraphics_DB or {
+    if event == "ADDON_LOADED" and (arg1 == "ProjectJaina_Graphics" or arg1 == "ProjectJaina_Graphics") then
+        ProjectJaina_Graphics_DB = ProjectJaina_Graphics_DB or ProjectJainaGraphics_DB or {
             minimap = { hide = false, pos = 45 },
             activePreset = "ultra"
         }
-        ProjectJainaGraphics_DB = Wanos_Graphics_DB
+        ProjectJainaGraphics_DB = ProjectJaina_Graphics_DB
             minimap = { hide = false, pos = 45 },
             activePreset = "ultra"
         }

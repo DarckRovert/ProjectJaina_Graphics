@@ -3,7 +3,7 @@
 ## Notes: Panel visual interactivo de renderizado nativo, nitidez cristalina, sombras proyectadas y presets de rendimiento para WoW 3.3.5a.
 ## Author: Project Jaina Dev Team
 ## Version: 1.0.3
-## SavedVariables: Wanos_Graphics_DB
+## SavedVariables: ProjectJaina_Graphics_DB
 
 Core.lua
 UI.lua

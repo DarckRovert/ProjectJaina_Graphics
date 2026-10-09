@@ -1,4 +1,4 @@
-# 📜 Aviso Legal y Atribuciones — Wanos_Graphics
+# 📜 Aviso Legal y Atribuciones — ProjectJaina_Graphics
 
 Este módulo forma parte de la infraestructura de cliente de **Project Jaina - Project Jaina**.
 
