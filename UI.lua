@@ -1,13 +1,13 @@
 --[[
     ===========================================================================
-    WoW Perú - Gráficos HD & Opciones Avanzadas
+    Project Jaina - Gráficos HD & Opciones Avanzadas
     Archivo: UI.lua
     Interfaz visual moderna para control nativo de renderizado y fidelidad HD
     ===========================================================================
 ]]
 
-WoWPeru_Graphics = WoWPeru_Graphics or {}
-local WPG = WoWPeru_Graphics
+ProjectJaina_Graphics = ProjectJaina_Graphics or {}
+local WPG = ProjectJaina_Graphics
 
 local BLANCO = "Interface\\Buttons\\WHITE8X8"
 local c = WPG.Colors
@@ -96,7 +96,7 @@ end
 function WPG:CreateMainUI()
     if WPG.MainFrame then return end
 
-    local f = CreateFrame("Frame", "WoWPeru_Graphics_MainFrame", UIParent)
+    local f = CreateFrame("Frame", "ProjectJaina_Graphics_MainFrame", UIParent)
     f:SetWidth(720)
     f:SetHeight(570)
     f:SetPoint("CENTER", UIParent, "CENTER", 0, 20)
@@ -110,7 +110,7 @@ function WPG:CreateMainUI()
     f:Hide()
 
     -- Registrar para que ESC cierre la ventana
-    tinsert(UISpecialFrames, "WoWPeru_Graphics_MainFrame")
+    tinsert(UISpecialFrames, "ProjectJaina_Graphics_MainFrame")
 
     -- Fondo y bordes exteriores de la ventana
     CrearFondo(f, c.fondo, 0.96)
@@ -126,7 +126,7 @@ function WPG:CreateMainUI()
 
     local title = header:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     title:SetPoint("LEFT", header, "LEFT", 16, 4)
-    title:SetText("|cFFFFD700WoW Perú|r |cFF00FFCCGráficos HD & Renderizado Nativo|r")
+    title:SetText("|cFFFFD700Project Jaina|r |cFF00FFCCGráficos HD & Renderizado Nativo|r")
 
     local subtitle = header:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -2)

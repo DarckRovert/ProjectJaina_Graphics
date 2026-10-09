@@ -1,12 +1,12 @@
-# 💎 WoWPeru_Graphics — Suite Gráfica HD & Control de Renderizado Nativo
+# 💎 Wanos_Graphics — Suite Gráfica HD & Control de Renderizado Nativo
 
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru__Graphics-black?logo=github)](https://github.com/DarckRovert/WoWPeru_Graphics)
-[![Entorno](https://img.shields.io/badge/WoW-3.3.5a%20(Build%2012340)-blue.svg)](https://wow-peru.lat/)
-[![Servidor](https://img.shields.io/badge/Servidor-WoW%20Per%C3%BA%20--%20Reino%20Andino-gold.svg)](https://wow-peru.lat/)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos__Graphics-black?logo=github)](https://github.com/DarckRovert/Wanos_Graphics)
+[![Entorno](https://img.shields.io/badge/WoW-3.3.5a%20(Build%2012340)-blue.svg)](https://worldofwanos.com/)
+[![Servidor](https://img.shields.io/badge/Servidor-WoW%20Per%C3%BA%20--%20Reino%20Andino-gold.svg)](https://worldofwanos.com/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
 [![Arquitectura](https://img.shields.io/badge/UI-Flat%20Dark%20Glassmorphism-cyan.svg)](UI.lua)
 
-Suite visual y módulo de ingeniería gráfica nativa para el cliente oficial de **World of Warcraft 3.3.5a (Wrath of the Lich King)** de **WoW Perú - Reino Andino**. 
+Suite visual y módulo de ingeniería gráfica nativa para el cliente oficial de **World of Warcraft 3.3.5a (Wrath of the Lich King)** de **Project Jaina - Project Jaina**. 
 
 Permite desbloquear la fidelidad visual cristalina del motor sin necesidad de inyectores DLL externos, wrappers ni software de post-procesamiento (cero ReShade / SweetFX), ofreciendo una interfaz gráfica integrada directamente en el menú del juego.
 
@@ -41,7 +41,7 @@ La suite se integra de forma transparente mediante 4 puntos de entrada nativos:
 
 1. **Menú de Escape (`GameMenuFrame`):** Botón directo **`|cFFFFD700✨ Gráficos HD|r`** posicionado junto a *Opciones de vídeo*.
 2. **Ventana de Opciones de Vídeo (`VideoOptionsFrame`):** Botón **`✨ Opciones HD`** en la esquina superior derecha.
-3. **Opciones de Interfaz de Blizzard:** Categoría en `Escape -> Opciones de Interfaz -> AddOns -> WoW Perú Gráficos HD`.
+3. **Opciones de Interfaz de Blizzard:** Categoría en `Escape -> Opciones de Interfaz -> AddOns -> Project Jaina Gráficos HD`.
 4. **Comandos de Chat (Slash):**
    - `/graficos`
    - `/graphics`
@@ -62,7 +62,7 @@ La suite se integra de forma transparente mediante 4 puntos de entrada nativos:
 
 ## 🏛️ Gobernanza y Estilo de Diseño
 
-- **Arquitectura Visual:** Sistema de diseño plano oscuro *Flat Dark Glassmorphism* acorde a los estándares institucionales de WoW Perú (`#0A0B0E`, bordes `#2C2F38`, acentos oro `#E8B54D` y cian `#00FFCC`).
+- **Arquitectura Visual:** Sistema de diseño plano oscuro *Flat Dark Glassmorphism* acorde a los estándares institucionales de Project Jaina (`#0A0B0E`, bordes `#2C2F38`, acentos oro `#E8B54D` y cian `#00FFCC`).
 - **Inmunidad a Taint:** El botón del menú de escape utiliza `HookScript("OnShow")` con cerrojos booleanos idempotentes, evitando alterar la cadena de scripts de Blizzard o colisionar con otros gestores de interfaz como `ACP`.
 - **Rendimiento:** Cero saturación de memoria Lua (< 85 KB) y cálculo de telemetría de FPS / memoria pasivo con refresco escalonado a 0.5s.
 
@@ -71,5 +71,5 @@ La suite se integra de forma transparente mediante 4 puntos de entrada nativos:
 ## 👥 Créditos y Autoría
 
 - **Desarrollo & Arquitectura:** DarckRovert (`Elnazzareno`) & Claude Mythos 5 (L9 Staff Engineer).
-- **Comunidad & Servidor:** [WoW Perú - Reino Andino](https://wow-peru.lat/)
+- **Comunidad & Servidor:** [Project Jaina - Project Jaina](https://worldofwanos.com/)
 - **Licencia:** MIT (Código Abierto para la comunidad).

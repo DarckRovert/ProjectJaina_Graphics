@@ -1,4 +1,4 @@
-# 📝 Registro de Cambios — WoWPeru_Graphics
+# 📝 Registro de Cambios — Wanos_Graphics
 
 Todas las modificaciones notables a este proyecto se documentan en este archivo.  
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/) y sigue [SemVer](https://semver.org/).
@@ -15,7 +15,7 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 ## [1.0.2] — 2026-10-07
 
 ### 🐛 Corregido (Alineación de UI & Anclaje de Menú Nativo)
-- **Corrección de Cadena de Anclaje en `GameMenuFrame`:** Reanclado quirúrgico del botón `GameMenuButtonSoundOptions` ("Sonido") inmediatamente debajo de `GameMenuButton_WoWPeruGraphics` ("Gráficos HD"), y `GameMenuButtonUIOptions` ("Interfaz") debajo de Sonido. Elimina la superposición visual donde Gráficos HD se dibujaba sobre Sonido.
+- **Corrección de Cadena de Anclaje en `GameMenuFrame`:** Reanclado quirúrgico del botón `GameMenuButtonSoundOptions` ("Sonido") inmediatamente debajo de `GameMenuButton_WanosGraphics` ("Gráficos HD"), y `GameMenuButtonUIOptions` ("Interfaz") debajo de Sonido. Elimina la superposición visual donde Gráficos HD se dibujaba sobre Sonido.
 - **Incremento Determinista de Altura de Menú:** Asegurada expansión de 22 px en `GameMenuFrame` con cerrojo de ejecución única para alojar el nuevo botón sin recortar el marco inferior ni colisionar con ACP / Accesorios.
 - **Saneamiento de Glifos Unicode (Eliminación de `?`):** Erradicados emojis incompatibles con la tipografía oficial `FRIZQT__.TTF` de 3.3.5a (`✨`, `💎`, `⚔️`, `🔄`, `⚡`) en botones de GameMenuFrame, VideoOptionsFrame y perfiles rápidos, asegurando renderizado tipográfico nativo libre de caracteres corruptos.
 
@@ -30,7 +30,7 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 ## [1.0.0] — 2026-10-07
 
 ### ✨ Añadido
-- **Suite Gráfica In-Game:** Creación del módulo oficial `WoWPeru_Graphics` con panel visual interactivo de 3 columnas estilo *Flat Dark Glassmorphism*.
+- **Suite Gráfica In-Game:** Creación del módulo oficial `Wanos_Graphics` con panel visual interactivo de 3 columnas estilo *Flat Dark Glassmorphism*.
 - **Presets Rápidos de 1 Clic:**
   - `💎 Ultra HD Nativo`: Nitidez absoluta, sombras proyectadas 2K, vegetación cuádruple (256) y audio 128 canales.
   - `⚔️ Raid 25 Competitivo`: Claridad táctica y optimización para 120 FPS estables en combate masivo.

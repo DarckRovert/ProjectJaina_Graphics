@@ -11,7 +11,7 @@ def test_syntax_and_structure():
         "README.md", "CHANGELOG.md", "ECOSYSTEM_REGISTRY.md",
         "API.md", "AGENTS.md", "INSTALL.md", "SECURITY.md",
         "NOTICE.md", "LICENSE", ".gitignore", ".gitattributes",
-        "WoWPeru_Graphics.toc", "Core.lua", "UI.lua"
+        "ProjectJaina_Graphics.toc", "Core.lua", "UI.lua"
     ]
     for doc in required_docs:
         path = os.path.join(base_dir, doc)
@@ -19,7 +19,7 @@ def test_syntax_and_structure():
     print("[PASS] All 13 repository infrastructure files exist.")
 
     # 2. Verify TOC references
-    toc_path = os.path.join(base_dir, "WoWPeru_Graphics.toc")
+    toc_path = os.path.join(base_dir, "ProjectJaina_Graphics.toc")
     with open(toc_path, "r", encoding="utf-8") as f:
         toc_content = f.read()
     assert "Core.lua" in toc_content, "TOC missing Core.lua"

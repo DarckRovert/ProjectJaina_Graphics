@@ -1,6 +1,6 @@
-# 📜 Aviso Legal y Atribuciones — WoWPeru_Graphics
+# 📜 Aviso Legal y Atribuciones — Wanos_Graphics
 
-Este módulo forma parte de la infraestructura de cliente de **WoW Perú - Reino Andino**.
+Este módulo forma parte de la infraestructura de cliente de **Project Jaina - Project Jaina**.
 
 ---
 
@@ -15,4 +15,4 @@ Este módulo forma parte de la infraestructura de cliente de **WoW Perú - Reino
 ## 💻 Licenciamiento
 
 El código fuente de este módulo se distribuye bajo los términos de la [Licencia MIT](LICENSE).
-Copyright (c) 2026 WoW Perú - Reino Andino (DarckRovert / Elnazzareno).
+Copyright (c) 2026 Project Jaina - Project Jaina (DarckRovert / Elnazzareno).

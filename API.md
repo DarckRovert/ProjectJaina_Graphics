@@ -1,6 +1,6 @@
-# 🔌 Documentación de API — WoWPeru_Graphics
+# 🔌 Documentación de API — Wanos_Graphics
 
-Interfaz pública y funciones de control del módulo `WoWPeru_Graphics`.
+Interfaz pública y funciones de control del módulo `Wanos_Graphics`.
 
 ---
 
@@ -9,7 +9,7 @@ Interfaz pública y funciones de control del módulo `WoWPeru_Graphics`.
 Toda la funcionalidad pública se exporta bajo la tabla global:
 
 ```lua
-WoWPeru_Graphics = WoWPeru_Graphics or {}
+Wanos_Graphics = Wanos_Graphics or {}
 ```
 
 ---
@@ -20,7 +20,7 @@ WoWPeru_Graphics = WoWPeru_Graphics or {}
 Abre o cierra la ventana principal de la suite gráfica. Si la ventana no ha sido creada aún, ejecuta `CreateMainUI()` de forma perezosa (*lazy initialization*).
 
 ```lua
-WoWPeru_Graphics:ToggleUI()
+Wanos_Graphics:ToggleUI()
 ```
 
 ---
@@ -33,7 +33,7 @@ Aplica en caliente un perfil de renderizado completo, ejecutando las llamadas `S
 
 ```lua
 -- Ejemplo: Forzar modo ultra fidelidad desde un macro u otro addon
-WoWPeru_Graphics:ApplyPreset("ultra")
+Wanos_Graphics:ApplyPreset("ultra")
 ```
 
 ---

@@ -1,6 +1,6 @@
-# 🌐 Registro de Ecosistema — WoWPeru_Graphics
+# 🌐 Registro de Ecosistema — Wanos_Graphics
 
-Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Perú - Reino Andino**.
+Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina - Project Jaina**.
 
 ---
 
@@ -8,14 +8,14 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Pe
 
 | Campo | Valor |
 |---|---|
-| **Nombre Técnico** | `WoWPeru_Graphics` |
-| **Carpeta Local** | `WoWPeru_Graphics` |
+| **Nombre Técnico** | `Wanos_Graphics` |
+| **Carpeta Local** | `Wanos_Graphics` |
 | **Versión Actual** | `1.0.0` |
 | **Clasificación** | Cliente / Motor Gráfico & Renderizado Nativo |
 | **Licencia Formal** | MIT |
-| **Repositorio GitHub** | [WoWPeru_Graphics](https://github.com/DarckRovert/WoWPeru_Graphics) |
+| **Repositorio GitHub** | [Wanos_Graphics](https://github.com/DarckRovert/Wanos_Graphics) |
 | **Entorno de Juego** | World of Warcraft 3.3.5a (Build 12340) / WotLK |
-| **Persistencia** | `WoWPeruGraphics_DB` (por cuenta / `SavedVariables`) |
+| **Persistencia** | `WanosGraphics_DB` (por cuenta / `SavedVariables`) |
 
 ---
 
@@ -35,4 +35,4 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Pe
 | **`Config.wtf`** | Sincronización Bidireccional | Lee y escribe variables de renderizado nativo en el archivo de configuración del juego. |
 | **`cDF` (DragonflightUI)** | Coexistencia Armónica | Provee nitidez máxima a las texturas 2x de la interfaz sin interferir con la barra de acción o micromenús. |
 | **`ACP` (Addon Control Panel)** | Inmunidad de Anclaje | Convive de forma limpia en `GameMenuFrame` sin colisión de alturas ni rotura de botones de Desconectar. |
-| **`WoWPeru_Companion`** | Telemetría | Provee un entorno con alta tasa de cuadros para el renderizado de badges e interfaces sociales. |
+| **`Wanos_Companion`** | Telemetría | Provee un entorno con alta tasa de cuadros para el renderizado de badges e interfaces sociales. |

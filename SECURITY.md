@@ -1,6 +1,6 @@
-# 🛡️ Política de Seguridad — WoWPeru_Graphics
+# 🛡️ Política de Seguridad — Wanos_Graphics
 
-La seguridad y la integridad del cliente de juego son prioritarias en el ecosistema de **WoW Perú**.
+La seguridad y la integridad del cliente de juego son prioritarias en el ecosistema de **Project Jaina**.
 
 ---
 
@@ -19,4 +19,4 @@ La seguridad y la integridad del cliente de juego son prioritarias en el ecosist
 
 ## 📢 Reporte de Vulnerabilidades
 
-Si detectas un comportamiento anómalo o posible vector de fallo, repórtalo directamente al equipo de desarrollo en [GitHub](https://github.com/DarckRovert/WoWPeru_Graphics/issues) o vía Discord del servidor.
+Si detectas un comportamiento anómalo o posible vector de fallo, repórtalo directamente al equipo de desarrollo en [GitHub](https://github.com/DarckRovert/Wanos_Graphics/issues) o vía Discord del servidor.

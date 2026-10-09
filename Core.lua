@@ -1,17 +1,17 @@
 --[[
     ===========================================================================
-    WoW Perú - Gráficos HD & Opciones Avanzadas
+    Project Jaina - Gráficos HD & Opciones Avanzadas
     Archivo: Core.lua
     Motor de CVars, gestión de presets y sincronización con el motor gráfico 3.3.5a
     ===========================================================================
 ]]
 
-WoWPeru_Graphics = WoWPeru_Graphics or {}
-local WPG = WoWPeru_Graphics
+ProjectJaina_Graphics = ProjectJaina_Graphics or {}
+local WPG = ProjectJaina_Graphics
 
 -- Estado y versión
 WPG.Version = "1.0.3"
-WPG.Title = "|cFFFFD700WoW Perú|r |cFF00FFCCGráficos HD|r"
+WPG.Title = "|cFFFFD700Project Jaina|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
 WPG.Colors = {
@@ -29,7 +29,7 @@ WPG.Colors = {
 
 -- Logger formal
 function WPG:Print(msg)
-    DEFAULT_CHAT_FRAME:AddMessage("|cFFFFD700[WoW Perú HD]|r " .. tostring(msg))
+    DEFAULT_CHAT_FRAME:AddMessage("|cFFFFD700[Project Jaina HD]|r " .. tostring(msg))
 end
 
 -- ============================================================================
@@ -146,7 +146,7 @@ function WPG:ApplyPreset(presetKey)
     end
 
     WPG:Print("|cFF00FFCCPreset aplicado:|r " .. preset.name)
-    UIErrorsFrame:AddMessage("WoW Perú: " .. preset.name .. " Aplicado", 0.0, 1.0, 0.8, 1.0, 3)
+    UIErrorsFrame:AddMessage("Project Jaina: " .. preset.name .. " Aplicado", 0.0, 1.0, 0.8, 1.0, 3)
 end
 
 -- ============================================================================
@@ -157,8 +157,12 @@ frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
 
 frame:SetScript("OnEvent", function(self, event, arg1)
-    if event == "ADDON_LOADED" and arg1 == "WoWPeru_Graphics" then
-        WoWPeruGraphics_DB = WoWPeruGraphics_DB or {
+    if event == "ADDON_LOADED" and (arg1 == "Wanos_Graphics" or arg1 == "ProjectJaina_Graphics") then
+        Wanos_Graphics_DB = Wanos_Graphics_DB or ProjectJainaGraphics_DB or {
+            minimap = { hide = false, pos = 45 },
+            activePreset = "ultra"
+        }
+        ProjectJainaGraphics_DB = Wanos_Graphics_DB
             minimap = { hide = false, pos = 45 },
             activePreset = "ultra"
         }
@@ -173,7 +177,7 @@ end)
 function WPG:InitUIHooks()
     -- 1. Botón en VideoOptionsFrame
     if VideoOptionsFrame then
-        local hdBtn = CreateFrame("Button", "VideoOptionsFrame_WoWPeruHDButton", VideoOptionsFrame, "UIPanelButtonTemplate")
+        local hdBtn = CreateFrame("Button", "VideoOptionsFrame_ProjectJainaHDButton", VideoOptionsFrame, "UIPanelButtonTemplate")
         hdBtn:SetWidth(150)
         hdBtn:SetHeight(22)
         hdBtn:SetPoint("TOPRIGHT", VideoOptionsFrame, "TOPRIGHT", -40, -14)
@@ -185,7 +189,7 @@ function WPG:InitUIHooks()
 
     -- 2. Botón en GameMenuFrame (Menú de Escape)
     if GameMenuFrame then
-        local gmBtn = CreateFrame("Button", "GameMenuButton_WoWPeruGraphics", GameMenuFrame, "GameMenuButtonTemplate")
+        local gmBtn = CreateFrame("Button", "GameMenuButton_ProjectJainaGraphics", GameMenuFrame, "GameMenuButtonTemplate")
         gmBtn:SetText("|cFFFFD700Gráficos HD|r")
         
         local btnWidth = (GameMenuButtonOptions and GameMenuButtonOptions:GetWidth() and GameMenuButtonOptions:GetWidth() > 0) and GameMenuButtonOptions:GetWidth() or 144
@@ -231,12 +235,12 @@ function WPG:InitUIHooks()
 end
 
 function WPG:InitBlizOptionsPanel()
-    local panel = CreateFrame("Frame", "WoWPeru_Graphics_BlizPanel", UIParent)
-    panel.name = "WoW Perú Gráficos HD"
+    local panel = CreateFrame("Frame", "ProjectJaina_Graphics_BlizPanel", UIParent)
+    panel.name = "Project Jaina Gráficos HD"
 
     local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
     title:SetPoint("TOPLEFT", 16, -16)
-    title:SetText("|cFFFFD700WoW Perú|r - |cFF00FFCCPanel de Gráficos HD|r")
+    title:SetText("|cFFFFD700Project Jaina|r - |cFF00FFCCPanel de Gráficos HD|r")
 
     local desc = panel:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
     desc:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -8)
