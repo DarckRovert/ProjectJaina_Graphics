@@ -1,8 +1,8 @@
 # 💎 Wanos_Graphics — Suite Gráfica HD & Control de Renderizado Nativo
 
 [![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos__Graphics-black?logo=github)](https://github.com/DarckRovert/Wanos_Graphics)
-[![Entorno](https://img.shields.io/badge/WoW-3.3.5a%20(Build%2012340)-blue.svg)](https://worldofwanos.com/)
-[![Servidor](https://img.shields.io/badge/Servidor-WoW%20Per%C3%BA%20--%20Reino%20Andino-gold.svg)](https://worldofwanos.com/)
+[![Entorno](https://img.shields.io/badge/WoW-3.3.5a%20(Build%2012340)-blue.svg)](https://projectjaina.com/)
+[![Servidor](https://img.shields.io/badge/Servidor-WoW%20Per%C3%BA%20--%20Reino%20Andino-gold.svg)](https://projectjaina.com/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
 [![Arquitectura](https://img.shields.io/badge/UI-Flat%20Dark%20Glassmorphism-cyan.svg)](UI.lua)
 
@@ -71,5 +71,5 @@ La suite se integra de forma transparente mediante 4 puntos de entrada nativos:
 ## 👥 Créditos y Autoría
 
 - **Desarrollo & Arquitectura:** DarckRovert (`Elnazzareno`) & Claude Mythos 5 (L9 Staff Engineer).
-- **Comunidad & Servidor:** [Project Jaina - Project Jaina](https://worldofwanos.com/)
+- **Comunidad & Servidor:** [Project Jaina - Project Jaina](https://projectjaina.com/)
 - **Licencia:** MIT (Código Abierto para la comunidad).

@@ -1,9 +1,9 @@
 # 🤖 Reglas de Contexto y Memoria para Agentes de IA — Wanos_Graphics
 
 > **Documento Maestro de Arquitectura y Memoria Operativa**  
-> **Ámbito:** `Client\Interface\AddOns\Jaina_Graphics\`  
+> **Ámbito:** `Client\Interface\AddOns\ProjectJaina_Graphics\`  
 > **Líder del Proyecto:** DarckRovert (Ingame: `Elnazzareno`)  
-> **Servidor Destino:** [Project Jaina](https://worldofwanos.com/) — Project Jaina  
+> **Servidor Destino:** [Project Jaina](https://projectjaina.com/) — Project Jaina  
 > **Entorno de Ejecución:** World of Warcraft 3.3.5a (Build 12340) | Lua 5.1 puro  
 > **Versión de Reglas:** 1.0.0 (Octubre 2026)
 
