@@ -1,22 +1,35 @@
 # 🛡️ Política de Seguridad — ProjectJaina_Graphics
 
-La seguridad y la integridad del cliente de juego son prioritarias en el ecosistema de **Project Jaina**.
+**Proyecto:** Project Jaina  
+**Estándar de Seguridad:** Staff Software Engineer L9 (Mythos 5)  
+**Fecha de Actualización:** 10 de Octubre de 2026  
 
 ---
 
-## 🔒 Garantías de Seguridad del Módulo
+## 1. Alcance y Filosofía de Seguridad
 
-1. **Cero Inyección Binaria:**
-   Este addon no inyecta bibliotecas dinámicas (`.dll`), no altera la memoria del proceso `Wow.exe` ni utiliza ganchos del sistema operativo. Toda su lógica opera exclusivamente dentro del entorno aislado de Lua 5.1 del cliente oficial.
-
-2. **Cero Telemetría Externa:**
-   El addon no realiza peticiones HTTP/Sockets fuera del juego ni almacena credenciales de usuario.
-
-3. **Inmunidad a Taint de Combate:**
-   Las funciones críticas de combate (marcos de banda, botones de acción) no son interceptadas, previniendo errores de *"Interface action failed because of an AddOn"*.
+La seguridad de **ProjectJaina_Graphics** se fundamenta en el aislamiento estricto del entorno de ejecución de Lua 5.1 dentro del cliente World of Warcraft 3.3.5a (Build 12340) y en la validación autoritativa en el servidor.
 
 ---
 
-## 📢 Reporte de Vulnerabilidades
+## 2. Principios de Blindaje de Código
 
-Si detectas un comportamiento anómalo o posible vector de fallo, repórtalo directamente al equipo de desarrollo en [GitHub](https://github.com/DarckRovert/ProjectJaina_Graphics/issues) o vía Discord del servidor.
+1. **Aislamiento de FrameXML y Anti-Taint:**
+   - Las funciones que interactúan con botones de acción protegidos o macros de combate no contaminan las variables de entorno global seguras.
+   - Se evita estrictamente la modificación de tablas globales del sistema sin nombres de espacio propios (`PJ_*` o nombres de addon).
+2. **Límite de Red y Prevención de Desbordamiento:**
+   - La API `SendAddonMessage` está restringida a un máximo absoluto de **255 bytes por paquete**. Todo payload emitido se fragmenta o comprime en estructuras compactas.
+   - Prefijo auditado: `N/A (Control de cvars y D3D9)`.
+3. **Validación Autoritativa en Servidor:**
+   - El cliente de interfaz es tratado como un medio de presentación potencialmente no confiable. Ninguna transacción de ítems, progreso, monedas o recompensas es decidida por el cliente; el servidor Eluna / C++ (`N/A (Calibración cliente)`) valida y aplica los cambios en MySQL.
+4. **Higiene de Strings y Sanitización:**
+   - Toda entrada de usuario proveniente de cajas de texto (`EditBox`) o comandos slash (`/pjgfx, /graphics`) es limpiada contra inyecciones de secuencias de escape y caracteres nulos.
+
+---
+
+## 3. Reporte Responsable de Vulnerabilidades
+
+Si descubres una vulnerabilidad de seguridad o un vector de explotación en este AddOn:
+- **No lo divulgues públicamente.**
+- Notifícalo de inmediato a través del canal privado de ingeniería en el portal oficial: [Project Jaina Contacto](https://darckrovert.github.io/ProjectJaina_Web/).
+- El equipo técnico investigará y aplicará el parche correctivo de forma expedita.
