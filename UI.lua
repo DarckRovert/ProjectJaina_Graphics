@@ -546,13 +546,129 @@ function WPG:CreateMainUI()
     end)
     proxyBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-    proxyBtn:SetScript("OnClick", function()
+    -- Modal Interactiva de Configuración para Modern WoW Renderer
+    local mModal = CreateFrame("Frame", "ProjectJaina_Graphics_ModernModal", f)
+    mModal:SetWidth(560)
+    mModal:SetHeight(380)
+    mModal:SetPoint("CENTER", f, "CENTER", 0, 0)
+    mModal:SetFrameStrata("FULLSCREEN_DIALOG")
+    mModal:EnableMouse(true)
+    CrearFondo(mModal, c.fondo, 0.98)
+    CrearBorde(mModal, c.cian, 2)
+    mModal:Hide()
+
+    local mHeader = CreateFrame("Frame", nil, mModal)
+    mHeader:SetHeight(36)
+    mHeader:SetPoint("TOPLEFT", mModal, "TOPLEFT", 0, 0)
+    mHeader:SetPoint("TOPRIGHT", mModal, "TOPRIGHT", 0, 0)
+    CrearFondo(mHeader, c.panelAlto, 1)
+    CrearBorde(mHeader, c.borde, 1)
+
+    local mTitle = mHeader:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    mTitle:SetPoint("LEFT", mHeader, "LEFT", 14, 0)
+    mTitle:SetText("|cFFFFD700Modern WoW Renderer|r |cFF00FFCC(DirectX 9 Shaders & Proxy)|r")
+
+    local mClose = CreateFrame("Button", nil, mHeader, "UIPanelCloseButton")
+    mClose:SetPoint("RIGHT", mHeader, "RIGHT", -4, 0)
+    mClose:SetScript("OnClick", function() mModal:Hide() end)
+
+    local mSub = mModal:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    mSub:SetPoint("TOPLEFT", mModal, "TOPLEFT", 16, -46)
+    mSub:SetPoint("TOPRIGHT", mModal, "TOPRIGHT", -16, -46)
+    mSub:SetJustifyH("LEFT")
+    mSub:SetText("Pipeline gráfico avanzado de Corfirean para WotLK 3.3.5a: sombras en cascada, oclusión ambiental (SSAO), niebla volumétrica, rayos solares y reflejos en agua.")
+
+    -- Panel de Atajos de Teclado
+    local mKeys = CreateFrame("Frame", nil, mModal)
+    mKeys:SetHeight(120)
+    mKeys:SetPoint("TOPLEFT", mModal, "TOPLEFT", 16, -88)
+    mKeys:SetPoint("TOPRIGHT", mModal, "TOPRIGHT", -16, -88)
+    CrearFondo(mKeys, c.panel, 0.85)
+    CrearBorde(mKeys, c.borde, 1)
+
+    local kTitle = mKeys:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    kTitle:SetPoint("TOPLEFT", mKeys, "TOPLEFT", 12, -8)
+    kTitle:SetText("|cFFFFD700Atajos de Teclado del Motor (DirectX 9):|r")
+
+    local kDesc = mKeys:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    kDesc:SetPoint("TOPLEFT", kTitle, "BOTTOMLEFT", 0, -6)
+    kDesc:SetPoint("RIGHT", mKeys, "RIGHT", -12, 0)
+    kDesc:SetJustifyH("LEFT")
+    kDesc:SetText("|cFF00FFCC[ F7 ]|r   |cFFFFFFFFMenú Flotante de Ajustes:|r Abre el panel de calibración de shaders, niebla y sol.\n|cFF00FFCC[ F11 ]|r  |cFFFFFFFFAlternar Efectos (ON/OFF):|r Enciende o apaga la suite en tiempo real.\n|cFF00FFCC[ F12 ]|r  |cFFFFFFFFRecargar Shaders:|r Aplica cambios de GraphicsEffects.ini en caliente sin reiniciar.")
+
+    -- Estado del Entorno
+    local mStatus = CreateFrame("Frame", nil, mModal)
+    mStatus:SetHeight(86)
+    mStatus:SetPoint("TOPLEFT", mKeys, "BOTTOMLEFT", 0, -10)
+    mStatus:SetPoint("TOPRIGHT", mKeys, "BOTTOMRIGHT", 0, -10)
+    CrearFondo(mStatus, c.panelAlto, 0.9)
+    CrearBorde(mStatus, c.borde, 1)
+
+    local sTitle = mStatus:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sTitle:SetPoint("TOPLEFT", mStatus, "TOPLEFT", 12, -8)
+    sTitle:SetText("|cFFFFD700Diagnóstico de Compatibilidad:|r")
+
+    local sDesc = mStatus:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    sDesc:SetPoint("TOPLEFT", sTitle, "BOTTOMLEFT", 0, -6)
+    sDesc:SetPoint("RIGHT", mStatus, "RIGHT", -12, 0)
+    sDesc:SetJustifyH("LEFT")
+    sDesc:SetText("• Librería nativa: |cFF00FF00d3d9.dll instalada en la raíz del cliente|r\n• API de Gráficos: |cFF00FF00gxApi \"D3D9\" (Direct3D 9 Nativo)|r\n• Sombras dinámicas: |cFF00FF00extShadowQuality 1 | shadowLevel 2|r")
+
+    -- Botones de pie de modal
+    local btnCalib = CreateFrame("Button", nil, mModal)
+    btnCalib:SetWidth(200)
+    btnCalib:SetHeight(26)
+    btnCalib:SetPoint("BOTTOMLEFT", mModal, "BOTTOMLEFT", 16, 14)
+    local bct = btnCalib:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    bct:SetPoint("CENTER")
+    bct:SetText("|cFF00FFCCCalibrar CVars de Motor|r")
+    btnCalib.text = bct
+    EstilarBoton(btnCalib, c.cian, c.oro)
+    btnCalib:SetScript("OnClick", function()
         PlaySound("igMainMenuOption")
         WPG:SetCVar("gxApi", "D3D9")
         WPG:SetCVar("extShadowQuality", "1")
         WPG:SetCVar("shadowLevel", "2")
-        WPG:Print("|cFF00FFCC[Modern Renderer]|r Configuración D3D9 y sombras verificadas. Usa F7 in-game si d3d9.dll está instalado.")
+        WPG:Print("|cFF00FFCC[Modern Renderer]|r CVars optimizadas para d3d9.dll. Presiona F7 para abrir el menú in-game.")
         WPG:RefreshButtons()
+    end)
+
+    local btnRestartModal = CreateFrame("Button", nil, mModal)
+    btnRestartModal:SetWidth(180)
+    btnRestartModal:SetHeight(26)
+    btnRestartModal:SetPoint("LEFT", btnCalib, "RIGHT", 12, 0)
+    local brmt = btnRestartModal:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    brmt:SetPoint("CENTER")
+    brmt:SetText("|cFFFFD700Reiniciar Motor (RestartGx)|r")
+    btnRestartModal.text = brmt
+    EstilarBoton(btnRestartModal, c.oro, c.cian)
+    btnRestartModal:SetScript("OnClick", function()
+        PlaySound("igMainMenuOption")
+        RestartGx()
+        WPG:Print("Motor gráfico reiniciado.")
+    end)
+
+    local btnCloseModal = CreateFrame("Button", nil, mModal)
+    btnCloseModal:SetWidth(110)
+    btnCloseModal:SetHeight(26)
+    btnCloseModal:SetPoint("RIGHT", mModal, "RIGHT", -16, 0)
+    btnCloseModal:SetPoint("BOTTOM", mModal, "BOTTOM", 0, 14)
+    local bcmt = btnCloseModal:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    bcmt:SetPoint("CENTER")
+    bcmt:SetText("Entendido")
+    btnCloseModal.text = bcmt
+    EstilarBoton(btnCloseModal, c.borde, c.cian)
+    btnCloseModal:SetScript("OnClick", function()
+        mModal:Hide()
+    end)
+
+    proxyBtn:SetScript("OnClick", function()
+        PlaySound("igMainMenuOption")
+        if mModal:IsShown() then
+            mModal:Hide()
+        else
+            mModal:Show()
+        end
     end)
 
     -- ========================================================================
