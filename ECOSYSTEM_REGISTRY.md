@@ -1,6 +1,6 @@
 # 🌐 Registro de Ecosistema — ProjectJaina_Graphics
 
-Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina - Project Jaina**.
+Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina**.
 
 ---
 

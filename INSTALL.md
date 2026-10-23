@@ -1,6 +1,6 @@
 # 📦 Guía de Instalación — ProjectJaina_Graphics
 
-Instrucciones oficiales para instalar y verificar **ProjectJaina_Graphics** en el cliente **World of Warcraft 3.3.5a (Build 12340)** de **Project Jaina - Project Jaina**.
+Instrucciones oficiales para instalar y verificar **ProjectJaina_Graphics** en el cliente **World of Warcraft 3.3.5a (Build 12340)** de **Project Jaina**.
 
 ---
 
