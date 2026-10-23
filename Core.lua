@@ -259,14 +259,14 @@ function WPG:InitBlizOptionsPanel()
 end
 
 -- ============================================================================
--- SLASH COMMANDS
+-- SLASH COMMANDS (/graficos, /graphics, /hd, /jainagraphics)
 -- ============================================================================
-SLASH_WOWPERU_GRAPHICS1 = "/graficos"
-SLASH_WOWPERU_GRAPHICS2 = "/graphics"
-SLASH_WOWPERU_GRAPHICS3 = "/hd"
-SLASH_WOWPERU_GRAPHICS4 = "/wpg"
+SLASH_JAINA_GRAPHICS1 = "/graficos"
+SLASH_JAINA_GRAPHICS2 = "/graphics"
+SLASH_JAINA_GRAPHICS3 = "/hd"
+SLASH_JAINA_GRAPHICS4 = "/jainagraphics"
 
-SlashCmdList["WOWPERU_GRAPHICS"] = function(msg)
+SlashCmdList["JAINA_GRAPHICS"] = function(msg)
     msg = string.lower(string.trim(msg or ""))
     if msg == "ultra" then
         WPG:ApplyPreset("ultra")
@@ -278,3 +278,6 @@ SlashCmdList["WOWPERU_GRAPHICS"] = function(msg)
         WPG:ToggleUI()
     end
 end
+
+-- Puente pasivo de retrocompatibilidad arquitectónica
+SlashCmdList["WOWPERU_GRAPHICS"] = SlashCmdList["JAINA_GRAPHICS"]

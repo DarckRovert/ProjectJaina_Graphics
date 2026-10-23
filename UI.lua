@@ -612,7 +612,7 @@ function WPG:CreateMainUI()
     sDesc:SetPoint("TOPLEFT", sTitle, "BOTTOMLEFT", 0, -6)
     sDesc:SetPoint("RIGHT", mStatus, "RIGHT", -12, 0)
     sDesc:SetJustifyH("LEFT")
-    sDesc:SetText("• Librería nativa: |cFF00FF00d3d9.dll instalada en la raíz del cliente|r\n• API de Gráficos: |cFF00FF00gxApi \"D3D9\" (Direct3D 9 Nativo)|r\n• Sombras dinámicas: |cFF00FF00extShadowQuality 1 | shadowLevel 2|r")
+    sDesc:SetText("- Librería nativa: |cFF00FF00d3d9.dll instalada en la raíz del cliente|r\n- API de Gráficos: |cFF00FF00gxApi \"D3D9\" (Direct3D 9 Nativo)|r\n- Sombras dinámicas: |cFF00FF00extShadowQuality 1 | shadowLevel 2|r")
 
     -- Botones de pie de modal
     local btnCalib = CreateFrame("Button", nil, mModal)
