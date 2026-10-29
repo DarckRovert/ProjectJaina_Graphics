@@ -1,8 +1,9 @@
 ## Interface: 30300
+## Version: 1.1.0
 ## Title: |cFFFFD700Project Jaina|r - |cFF00FFCCGráficos HD & Opciones Avanzadas|r
 ## Notes: Panel visual interactivo de renderizado nativo, nitidez cristalina, sombras proyectadas y presets de rendimiento para WoW 3.3.5a.
 ## Author: Project Jaina Dev Team
-## Version: 1.0.3
+## Version: 1.1.0
 ## SavedVariables: ProjectJaina_Graphics_DB
 
 Core.lua
