@@ -109,7 +109,7 @@ WPG.Presets = {
             particleDensity      = "0.8",
             specular             = "1",
             projectedTextures    = "1",
-            Sound_NumChannels    = "128",
+            Sound_NumChannels    = "64",   -- 64 canales calibrados para evitar fragmentacion de heap en banda
             gxApi                = "D3D9",
         }
     },
@@ -242,7 +242,7 @@ function WPG:InitBlizOptionsPanel()
     desc:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -8)
     desc:SetWidth(380)
     desc:SetJustifyH("LEFT")
-    desc:SetText("Control de fidelidad gráfica nativa sin filtros externos: nitidez cristalina (sin desenfoque lechoso), sombras dinámicas proyectadas, vegetación cuádruple, filtrado anisótropo en armaduras y audio a 128 canales.")
+    desc:SetText("Control de fidelidad gráfica nativa sin filtros externos: nitidez cristalina (sin desenfoque lechoso), sombras dinámicas proyectadas, vegetación cuádruple, filtrado anisótropo en armaduras y audio protegido a 64 canales.")
 
     local openBtn = CreateFrame("Button", nil, panel, "UIPanelButtonTemplate")
     openBtn:SetWidth(200)

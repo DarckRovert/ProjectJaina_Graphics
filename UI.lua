@@ -721,7 +721,7 @@ function WPG:RefreshButtons()
     local sLevel = WPG:GetCVarNum("shadowLevel", 1)
     local extQ   = WPG:GetCVarNum("extShadowQuality", 0)
     local curApi = WPG:GetCVar("gxApi", "D3D9")
-    local curSnd = WPG:GetCVarNum("Sound_NumChannels", 128)
+    local curSnd = WPG:GetCVarNum("Sound_NumChannels", 64)
 
     -- Sombras
     for _, btn in ipairs(UI_CONTROLS.shadowButtons) do
