@@ -10,7 +10,7 @@ ProjectJaina_Graphics = ProjectJaina_Graphics or {}
 local WPG = ProjectJaina_Graphics
 
 -- Estado y versión
-WPG.Version = "1.0.3"
+WPG.Version = "1.1.0"
 WPG.Title = "|cFFFFD700Project Jaina|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
