@@ -207,12 +207,12 @@ function WPG:InitUIHooks()
             end
         end
 
-        local heightAdjusted = false
+        -- Enganche reactivo permanente a la actualización de altura de Blizzard
+        hooksecurefunc("GameMenuFrame_UpdateVisibleButtons", function()
+            GameMenuFrame:SetHeight(GameMenuFrame:GetHeight() + 22)
+        end)
+
         GameMenuFrame:HookScript("OnShow", function(self)
-            if not heightAdjusted then
-                self:SetHeight(self:GetHeight() + 22)
-                heightAdjusted = true
-            end
             AdjustGameMenuAnchors()
         end)
 
