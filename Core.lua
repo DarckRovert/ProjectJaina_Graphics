@@ -207,13 +207,20 @@ function WPG:InitUIHooks()
             end
         end
 
-        -- Enganche reactivo permanente a la actualización de altura de Blizzard
-        hooksecurefunc("GameMenuFrame_UpdateVisibleButtons", function()
-            GameMenuFrame:SetHeight(GameMenuFrame:GetHeight() + 22)
-        end)
+        -- Enganche reactivo seguro: GameMenuFrame_UpdateVisibleButtons no existe en WotLK 3.3.5a nativo
+        if type(_G["GameMenuFrame_UpdateVisibleButtons"]) == "function" then
+            hooksecurefunc("GameMenuFrame_UpdateVisibleButtons", function()
+                GameMenuFrame:SetHeight(GameMenuFrame:GetHeight() + 22)
+            end)
+        end
 
+        local heightAdjusted = false
         GameMenuFrame:HookScript("OnShow", function(self)
             AdjustGameMenuAnchors()
+            if type(_G["GameMenuFrame_UpdateVisibleButtons"]) ~= "function" and not heightAdjusted then
+                self:SetHeight(self:GetHeight() + 22)
+                heightAdjusted = true
+            end
         end)
 
         AdjustGameMenuAnchors()
