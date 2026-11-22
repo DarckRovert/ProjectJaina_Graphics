@@ -9,6 +9,11 @@
 ProjectJaina_Graphics = ProjectJaina_Graphics or {}
 local WPG = ProjectJaina_Graphics
 
+-- Polyfill seguro para WoW 3.3.5a (strtrim nativo sin string.trim global garantizado)
+string.trim = string.trim or strtrim or function(s)
+    return (tostring(s or ""):gsub("^%s+", ""):gsub("%s+$", ""))
+end
+
 -- Estado y versión
 WPG.Version = "1.1.0"
 WPG.Title = "|cFFFFD700Project Jaina|r |cFF00FFCCGráficos HD|r"

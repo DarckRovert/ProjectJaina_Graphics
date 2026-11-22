@@ -165,7 +165,7 @@ function WPG:CreateMainUI()
         EstilarBoton(btn, c.borde, colorHover)
 
         btn:SetScript("OnClick", function()
-            PlaySound("igMainMenuOptionCheat")
+            PlaySound("igMainMenuOptionCheckBoxOn")
             WPG:ApplyPreset(presetKey)
         end)
         return btn
@@ -230,6 +230,7 @@ function WPG:CreateMainUI()
         cb.tooltip = tooltipText
 
         cb:SetScript("OnClick", function(self)
+            if WPG._suppressSync then return end
             PlaySound("igMainMenuOptionCheckBoxOn")
             local isChecked = self:GetChecked()
             local val
@@ -314,6 +315,7 @@ function WPG:CreateMainUI()
         s.stepVal = stepVal
 
         s:SetScript("OnValueChanged", function(self, value)
+            if WPG._suppressSync then return end
             if self.stepVal and self.stepVal < 1 then
                 value = math.floor(value / self.stepVal + 0.5) * self.stepVal
                 self.valLabel:SetText(string.format("|cFF00FFCC%.1f|r", value))
@@ -772,6 +774,8 @@ end
 function WPG:RefreshUI()
     if not WPG.MainFrame then return end
 
+    self._suppressSync = true
+
     -- Actualizar checkboxes
     for _, cb in ipairs(UI_CONTROLS.checkboxes) do
         local rawVal = WPG:GetCVar(cb.cvar)
@@ -800,6 +804,8 @@ function WPG:RefreshUI()
             end
         end
     end
+
+    self._suppressSync = false
 
     -- Actualizar botones de modo activo
     WPG:RefreshButtons()

@@ -4,6 +4,17 @@ Todos los cambios notables de este proyecto están documentados en este archivo 
 
 ---
 
+## [1.1.1] — 2026-11-22
+### Polyfill `string.trim`, Guarda Anti-Sobrescritura CVar y SoundKit 3.3.5a (Hito #386)
+- **Compatibilidad Lua 5.1 Estándar (`Core.lua`):**
+  - Añadido polyfill `string.trim` (`strtrim` / patrón regex) evitando fallos `attempt to call method 'trim' (a nil value)` al ejecutar `/graficos`.
+- **Preservación Exacta de Presets (`UI.lua`):**
+  - Incorporada guarda `self._suppressSync` en `WPG:RefreshUI()`, `OnValueChanged` de sliders y `OnClick` de checkboxes para impedir que al abrir el panel o aplicar los presets `raid`/`classic` (`farclip = 777`) el deslizador redondee y sobrescriba la CVar a `800`.
+- **Audio de Interfaz (`UI.lua`):**
+  - Sustituido el SoundKit inválido `"igMainMenuOptionCheat"` por `"igMainMenuOptionCheckBoxOn"` compatible con WoW 3.3.5a.
+
+---
+
 ## [1.1.0] — 2026-10-14
 ### Integración y Calibración In-Game de Modern WoW Renderer (DirectX 9 Proxy)
 - **Control In-Game de Proxy Gráfico:** Añadido botón interactivo de verificación y guía para `modern-wow-renderer` (`d3d9.dll`).
