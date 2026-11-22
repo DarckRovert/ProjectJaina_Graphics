@@ -15,7 +15,7 @@ string.trim = string.trim or strtrim or function(s)
 end
 
 -- Estado y versión
-WPG.Version = "1.1.0"
+WPG.Version = "1.1.1"
 WPG.Title = "|cFFFFD700Project Jaina|r |cFF00FFCCGráficos HD|r"
 
 -- Constantes de color oficiales
